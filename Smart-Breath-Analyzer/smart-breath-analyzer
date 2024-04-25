@@ -1,0 +1,26 @@
+//Tech Trends Shameer
+//Smart Breath Analyzer
+
+#define sensorPin 2
+#define LED 3
+#define buzzer 4 
+ 
+void setup() {
+  pinMode(sensorPin, INPUT);
+  pinMode(LED, OUTPUT);
+  pinMode(buzzer, OUTPUT);
+  Serial.begin(9600);
+}
+void loop() {
+  bool sensorvalue = digitalRead(sensorPin);   
+  Serial.print("Alcohol value :");
+  Serial.println(sensorvalue);
+ 
+  if (sensorvalue == 0) {
+    digitalWrite(LED, HIGH);
+    digitalWrite(buzzer, HIGH);
+  } else {
+    digitalWrite(LED, LOW);
+    digitalWrite(buzzer, LOW);
+  }
+}
